@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LoginViewController.h
 //  Instagram
 //
 //  Created by Ogo-Oluwasobomi Popoola on 7/4/20.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface LoginViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END

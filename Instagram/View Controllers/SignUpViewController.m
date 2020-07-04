@@ -35,6 +35,7 @@
             NSLog(@"Error: %@", error.localizedDescription);
         } else {
             NSLog(@"User registered successfully");
+            [self performSegueWithIdentifier: @"loginSegue" sender: nil];
         }
     }];
 }
