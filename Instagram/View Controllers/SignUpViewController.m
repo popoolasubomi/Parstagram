@@ -43,5 +43,8 @@
     [self registerUser];
 }
 
+- (IBAction)cancelSignUpButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

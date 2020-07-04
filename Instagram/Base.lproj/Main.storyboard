@@ -117,6 +117,14 @@
                                     <action selector="signUpButton:" destination="FDM-sU-fPv" eventType="touchUpInside" id="KPv-C5-4AM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ri-oT-Hb1">
+                                <rect key="frame" x="20" y="44" width="46" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="close-icon"/>
+                                <connections>
+                                    <action selector="cancelSignUpButton:" destination="FDM-sU-fPv" eventType="touchUpInside" id="jCd-Dg-vxq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="3UV-l5-IBJ"/>
@@ -133,6 +141,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="close-icon" width="26" height="24"/>
         <image name="instagram_logo" width="255" height="108"/>
     </resources>
 </document>
