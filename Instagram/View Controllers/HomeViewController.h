@@ -1,5 +1,5 @@
 //
-//  SceneDelegate.h
+//  HomeViewController.h
 //  Instagram
 //
 //  Created by Ogo-Oluwasobomi Popoola on 7/4/20.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
+NS_ASSUME_NONNULL_BEGIN
 
-@property (strong, nonatomic) UIWindow * window;
+@interface HomeViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END

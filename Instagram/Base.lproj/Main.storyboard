@@ -29,7 +29,7 @@
                                 <rect key="frame" x="20" y="589" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb9-XP-0Ch">
                                 <rect key="frame" x="85" y="786" width="161" height="36"/>
@@ -38,16 +38,6 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6Q-Ws-rG9">
-                                <rect key="frame" x="254" y="789" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign Up.">
-                                    <color key="titleColor" red="0.10980392156862745" green="0.25882352941176467" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <segue destination="FDM-sU-fPv" kind="presentation" modalPresentationStyle="fullScreen" id="CW1-j9-FcL"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYw-oW-HAI">
                                 <rect key="frame" x="20" y="680" width="374" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -60,6 +50,17 @@
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hse-NW-1PK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6Q-Ws-rG9">
+                                <rect key="frame" x="254" y="788" width="65" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Sign Up.">
+                                    <color key="titleColor" red="0.10980392156862745" green="0.25882352941176467" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <segue destination="FDM-sU-fPv" kind="presentation" modalPresentationStyle="fullScreen" id="CW1-j9-FcL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -67,17 +68,17 @@
                     <connections>
                         <outlet property="passwordField" destination="i4e-UX-csJ" id="M1a-A4-KqE"/>
                         <outlet property="usernameField" destination="bmg-Ij-J1o" id="bJT-EU-o5z"/>
-                        <segue destination="oU2-cP-FKe" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="Lez-ft-L24"/>
+                        <segue destination="h16-V9-fN5" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="Lez-ft-L24"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="657" y="48"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="PMh-3t-60I">
             <objects>
-                <viewController id="oU2-cP-FKe" sceneMemberID="viewController">
+                <viewController id="oU2-cP-FKe" customClass="HomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QBf-y3-daQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J95-LZ-e89" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1238" y="943"/>
+            <point key="canvasLocation" x="1238" y="1732"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ULd-ui-UZv">
@@ -114,7 +115,7 @@
                                 <rect key="frame" x="20" y="591" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyp-P4-LhG">
                                 <rect key="frame" x="0.0" y="163" width="414" height="117"/>
@@ -134,6 +135,7 @@
                                 <rect key="frame" x="20" y="719" width="374" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -157,12 +159,30 @@
                         <outlet property="emailField" destination="B0O-1d-zXs" id="fjZ-3q-BRQ"/>
                         <outlet property="passwordField" destination="8SX-3t-tVE" id="SgR-Nn-4jP"/>
                         <outlet property="usernameField" destination="KzS-ME-Kdy" id="mB3-FZ-cK8"/>
-                        <segue destination="oU2-cP-FKe" kind="presentation" identifier="loginSegue" id="R1f-Oh-OVk"/>
+                        <segue destination="h16-V9-fN5" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="R1f-Oh-OVk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJi-OQ-L9U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1806" y="48"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JtN-hy-a7c">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fz-iA-QIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="AuthenticatedViewController" automaticallyAdjustsScrollViewInsets="NO" id="h16-V9-fN5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XE7-HW-Fwl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oU2-cP-FKe" kind="relationship" relationship="rootViewController" id="tfx-3R-NFA"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1237.68115942029" y="942.85714285714278"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
