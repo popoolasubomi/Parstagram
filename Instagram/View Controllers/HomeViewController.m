@@ -7,6 +7,9 @@
 //
 
 #import "HomeViewController.h"
+#import "LoginViewController.h"
+#import "AppDelegate.h"
+#import "Parse/Parse.h"
 
 @interface HomeViewController ()
 
@@ -16,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 /*
@@ -28,5 +30,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)logoutButton:(id)sender {
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+       AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+       UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        appDelegate.window.rootViewController = loginViewController;
+    }];
+}
 
 @end
