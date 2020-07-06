@@ -20,16 +20,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bmg-Ij-J1o">
-                                <rect key="frame" x="20" y="471" width="374" height="34"/>
+                                <rect key="frame" x="20" y="479" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i4e-UX-csJ">
-                                <rect key="frame" x="20" y="589" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb9-XP-0Ch">
                                 <rect key="frame" x="85" y="786" width="161" height="36"/>
@@ -61,9 +55,19 @@
                                     <segue destination="FDM-sU-fPv" kind="presentation" modalPresentationStyle="fullScreen" id="CW1-j9-FcL"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i4e-UX-csJ">
+                                <rect key="frame" x="20" y="557" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="inb-OL-2lm" appends="YES" id="rPu-AH-gQl"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="passwordField" destination="i4e-UX-csJ" id="M1a-A4-KqE"/>
@@ -72,6 +76,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="inb-OL-2lm">
+                    <connections>
+                        <action selector="onTapp:" destination="BYZ-38-t0r" id="PVb-6V-h6i"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="657" y="48"/>
         </scene>
@@ -91,11 +100,53 @@
                                 <action selector="logoutButton:" destination="oU2-cP-FKe" id="6Gc-y4-15J"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="insta_camera_btn" id="71W-NS-XQX">
+                            <connections>
+                                <action selector="cameraButton:" destination="oU2-cP-FKe" id="bMd-Kb-y03"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="66U-JR-Nsc" kind="presentation" identifier="cameraSegue" modalPresentationStyle="fullScreen" id="rQT-3p-ezb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J95-LZ-e89" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1238" y="1732"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="ZMt-cU-EJo">
+            <objects>
+                <viewController id="66U-JR-Nsc" customClass="CameraViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0ig-Vg-Uts">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIc-pZ-aE7">
+                                <rect key="frame" x="0.0" y="201" width="414" height="370"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hno-De-fQH">
+                                <rect key="frame" x="20" y="44" width="42" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back-icon"/>
+                                <connections>
+                                    <action selector="backButton:" destination="66U-JR-Nsc" eventType="touchUpInside" id="akC-u1-d1E"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="5Es-fB-jyM"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="pictureTaken" destination="VIc-pZ-aE7" id="Fri-oY-e2U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gjr-hn-LPr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2698.5507246376815" y="1731.6964285714284"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ULd-ui-UZv">
@@ -175,7 +226,6 @@
         <!--Navigation Controller-->
         <scene sceneID="JtN-hy-a7c">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3fz-iA-QIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="AuthenticatedViewController" automaticallyAdjustsScrollViewInsets="NO" id="h16-V9-fN5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XE7-HW-Fwl">
@@ -187,15 +237,18 @@
                         <segue destination="oU2-cP-FKe" kind="relationship" relationship="rootViewController" id="tfx-3R-NFA"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fz-iA-QIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1237.68115942029" y="942.85714285714278"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Lez-ft-L24"/>
+        <segue reference="R1f-Oh-OVk"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="back-icon" width="30" height="30"/>
         <image name="close-icon" width="26" height="24"/>
+        <image name="insta_camera_btn" width="25" height="25"/>
         <image name="instagram_logo" width="255" height="108"/>
     </resources>
 </document>

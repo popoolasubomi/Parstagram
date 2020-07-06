@@ -8,10 +8,13 @@
 
 #import "HomeViewController.h"
 #import "LoginViewController.h"
+#import "CameraViewController.h"
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
 
 @interface HomeViewController ()
+
+@property (nonatomic, strong) NSString *cameraType;
 
 @end
 
@@ -19,17 +22,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)cameraButton:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle: @"Camera"
+           message:@"Choose Source"
+    preferredStyle:(UIAlertControllerStyleActionSheet)];
+    
+    UIAlertAction *cameraSource = [UIAlertAction actionWithTitle:@"Camera"
+                                                           style: UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction * _Nonnull action) {
+                                                           self.cameraType = @"Camera";
+                                                           [self performSegueWithIdentifier: @"cameraSegue" sender: nil];
+    }];
+    
+    UIAlertAction *librarySource = [UIAlertAction actionWithTitle: @"Photo Library"
+                                                            style: UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * _Nonnull action) {
+                                                          self.cameraType = @"Photo Library";
+                                                          [self performSegueWithIdentifier: @"cameraSegue" sender: nil];
+    }];
+    
+    [alert addAction: cameraSource];
+    [alert addAction: librarySource];
+    
+    [self presentViewController: alert animated:YES completion:^{}];
 }
-*/
+
 
 - (IBAction)logoutButton:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
@@ -38,6 +58,13 @@
         LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         appDelegate.window.rootViewController = loginViewController;
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString: @"cameraSegue"]){
+        CameraViewController *cameraController = [segue destinationViewController];
+        cameraController.cameraType = self.cameraType;
+    }
 }
 
 @end

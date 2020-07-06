@@ -19,6 +19,7 @@
 		43DAA1ED24B12B47007D9874 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DAA1EC24B12B47007D9874 /* LoginViewController.m */; };
 		43DAA1F024B13AC2007D9874 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DAA1EF24B13AC2007D9874 /* HomeViewController.m */; };
 		43DAA1F324B13EDF007D9874 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DAA1F224B13EDF007D9874 /* SceneDelegate.m */; };
+		43DAA1F624B28226007D9874 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DAA1F524B28226007D9874 /* CameraViewController.m */; };
 		5A128EC08FE6B1ADF9318494 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD8D8C0447F8FBE6B40BFA0 /* Pods_Instagram.framework */; };
 		FDC9FDBA255AA3CC478B4B04 /* Pods_InstagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3708CBE6FDBDB4E3849C0E4 /* Pods_InstagramTests.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,8 @@
 		43DAA1EF24B13AC2007D9874 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		43DAA1F124B13ED6007D9874 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		43DAA1F224B13EDF007D9874 /* SceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		43DAA1F424B28226007D9874 /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		43DAA1F524B28226007D9874 /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		61484E7BB1F21BF29935105F /* Pods_Instagram_InstagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram_InstagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8125DF7692CC7C62680821CA /* Pods-Instagram-InstagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram-InstagramUITests.debug.xcconfig"; path = "Target Support Files/Pods-Instagram-InstagramUITests/Pods-Instagram-InstagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		83D1A7BBF8EB5DFF59CF59B5 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				43DAA1EC24B12B47007D9874 /* LoginViewController.m */,
 				43DAA1EE24B13AC2007D9874 /* HomeViewController.h */,
 				43DAA1EF24B13AC2007D9874 /* HomeViewController.m */,
+				43DAA1F424B28226007D9874 /* CameraViewController.h */,
+				43DAA1F524B28226007D9874 /* CameraViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -446,6 +451,7 @@
 				4341C35624B101ED000932F0 /* AppDelegate.m in Sources */,
 				4341C36724B101EE000932F0 /* main.m in Sources */,
 				43DAA1F024B13AC2007D9874 /* HomeViewController.m in Sources */,
+				43DAA1F624B28226007D9874 /* CameraViewController.m in Sources */,
 				43DAA1ED24B12B47007D9874 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,7 +629,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = codePath.Instagram;
+				PRODUCT_BUNDLE_IDENTIFIER = codePath.twitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -641,7 +647,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = codePath.Instagram;
+				PRODUCT_BUNDLE_IDENTIFIER = codePath.twitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

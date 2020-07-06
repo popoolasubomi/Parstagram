@@ -24,7 +24,6 @@
     [Parse initializeWithConfiguration:config];
     
     if (PFUser.currentUser) {
-        NSLog(@"Im in");
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"AuthenticatedViewController"];
         self.window.rootViewController = navigationController;

@@ -40,4 +40,8 @@
     [self loginUser];
 }
 
+- (IBAction)onTapp:(id)sender {
+    [self.view endEditing:YES];
+}
+
 @end
