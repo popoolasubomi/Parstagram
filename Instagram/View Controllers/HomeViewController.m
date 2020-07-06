@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 #import "LoginViewController.h"
 #import "CameraViewController.h"
-#import "AppDelegate.h"
+#import "SceneDelegate.h"
 #import "Parse/Parse.h"
 
 @interface HomeViewController ()
@@ -53,10 +53,10 @@
 
 - (IBAction)logoutButton:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-       AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-       UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        appDelegate.window.rootViewController = loginViewController;
+       SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+       UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
+       LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+       myDelegate.window.rootViewController = loginViewController;
     }];
 }
 

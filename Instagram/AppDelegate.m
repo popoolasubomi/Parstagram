@@ -22,12 +22,6 @@
              configuration.server = @"https://fbu-parstagram-app.herokuapp.com/parse";
          }];
     [Parse initializeWithConfiguration:config];
-    
-    if (PFUser.currentUser) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"AuthenticatedViewController"];
-        self.window.rootViewController = navigationController;
-    }
     return YES;
 }
 
