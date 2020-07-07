@@ -7,6 +7,7 @@
 //
 
 #import "HomeCell.h"
+#import "Post.h"
 
 @implementation HomeCell
 
@@ -21,4 +22,11 @@
     // Configure the view for the selected state
 }
 
+-(void)setPost:(Post *) post{
+    _post = post;
+    self.postedImage.file = post.image;
+    [self.postedImage loadInBackground];
+    
+    self.synopsisLabel.text = post.caption;
+}
 @end

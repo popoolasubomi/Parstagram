@@ -39,6 +39,7 @@
         }
     }
     else{
+        NSLog(@"Way");
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     
@@ -47,7 +48,7 @@
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
-    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+    UIImage *editedImage = info[UIImagePickerControllerOriginalImage];
     self.pictureTaken.image = [self resizeImage: editedImage withSize: CGSizeMake(414, 414)];
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -88,11 +89,11 @@
     [Post postUserImage: self.pictureTaken.image withCaption: self.captionField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (error){
             NSLog(@"Error description: %@", error.localizedDescription);
+            self.pictureTaken.image = [UIImage imageNamed:@"image_placeholder"];
             [self errorAlert];
         }
         else{
             NSLog(@"Upload was successful");
-            self.pictureTaken.image = [UIImage imageNamed:@"image_placeholder"];
             [self dismissViewControllerAnimated: YES completion: nil];
         }
     }];
