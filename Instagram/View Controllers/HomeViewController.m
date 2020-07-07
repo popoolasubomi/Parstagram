@@ -98,9 +98,8 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    HomeCell *cell = [self.tableView dequeueReusableCellWithIdentifier: @"HomeCell"];
+    HomeCell *cell = [tableView dequeueReusableCellWithIdentifier: @"HomeCell"];
     Post *post = self.posts[indexPath.row];
-//    cell.post = post;
     [cell setPost: post];
     return cell;
 }

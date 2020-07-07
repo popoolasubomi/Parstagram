@@ -26,7 +26,6 @@
     _post = post;
     self.postedImage.file = post.image;
     [self.postedImage loadInBackground];
-    
     self.synopsisLabel.text = post.caption;
 }
 @end
