@@ -12,9 +12,10 @@
 #import "SceneDelegate.h"
 #import "Parse/Parse.h"
 
-@interface HomeViewController ()
+@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSString *cameraType;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -23,6 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+}
+
+- (void)loadPosts{
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query includeKey:@"author"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
 }
 
 - (IBAction)cameraButton:(id)sender {
@@ -65,6 +73,14 @@
         CameraViewController *cameraController = [segue destinationViewController];
         cameraController.cameraType = self.cameraType;
     }
+}
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    <#code#>
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    <#code#>
 }
 
 @end

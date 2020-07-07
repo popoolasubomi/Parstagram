@@ -7,10 +7,12 @@
 //
 
 #import "CameraViewController.h"
+#import "Post.h"
 
 @interface CameraViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *pictureTaken;
+@property (weak, nonatomic) IBOutlet UITextField *captionField;
 
 @end
 
@@ -46,15 +48,55 @@
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    self.pictureTaken.image = editedImage;
+    self.pictureTaken.image = [self resizeImage: editedImage withSize: CGSizeMake(414, 414)];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 - (IBAction)backButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void) errorAlert{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle: @"Invalid Details"
+           message:@"Could not find User"
+    preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction *okAlert = [UIAlertAction actionWithTitle:@"Ok"
+                                                           style: UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction * _Nonnull action) {}];
+    
+    [alert addAction: okAlert];
+    [self presentViewController: alert animated:YES completion:^{}];
+}
+
+- (IBAction)shareButton:(id)sender {
+    [Post postUserImage: self.pictureTaken.image withCaption: self.captionField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error){
+            NSLog(@"Error description: %@", error.localizedDescription);
+            [self errorAlert];
+        }
+        else{
+            NSLog(@"Upload was successful");
+            self.pictureTaken.image = [UIImage imageNamed:@"image_placeholder"];
+            [self dismissViewControllerAnimated: YES completion: nil];
+        }
+    }];
+}
 
 /*
 #pragma mark - Navigation
