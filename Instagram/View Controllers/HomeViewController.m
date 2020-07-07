@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "LoginViewController.h"
 #import "CameraViewController.h"
+#import "DetailsViewController.h"
 #import "HomeCell.h"
 #import "SceneDelegate.h"
 #import "Parse/Parse.h"
@@ -89,14 +90,6 @@
     }];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString: @"cameraSegue"]){
-        UINavigationController *navigationController = [segue destinationViewController];
-        CameraViewController *cameraController = (CameraViewController *)navigationController.topViewController;
-        cameraController.cameraType = self.cameraType;
-    }
-}
-
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HomeCell *cell = [tableView dequeueReusableCellWithIdentifier: @"HomeCell"];
     Post *post = self.posts[indexPath.row];
@@ -108,4 +101,18 @@
     return self.posts.count;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString: @"cameraSegue"]){
+        UINavigationController *navigationController = [segue destinationViewController];
+        CameraViewController *cameraController = (CameraViewController *)navigationController.topViewController;
+        cameraController.cameraType = self.cameraType;
+    }
+    else if ([[segue identifier] isEqualToString: @"detailsSegue"]){
+        DetailsViewController *detailsController = [segue destinationViewController];
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *post = self.posts[indexPath.row];
+        detailsController.post = post;
+    }
+}
 @end
