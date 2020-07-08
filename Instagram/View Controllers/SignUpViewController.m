@@ -78,4 +78,8 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)onTap:(id)sender {
+    [self.view endEditing: YES];
+}
+
 @end

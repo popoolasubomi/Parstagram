@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSArray *posts;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 
 @end
 
@@ -32,11 +33,21 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    [self editNavigationBar];
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action: @selector(loadPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     
     [self loadPosts];
+}
+
+- (void) editNavigationBar{
+    UIImage *image = [UIImage imageNamed: @"instagram_logo"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage: image];
+    imageView.frame = CGRectMake(167, 2, 100, 40);
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    [navigationBar addSubview: imageView];
 }
 
 - (void)loadPosts{

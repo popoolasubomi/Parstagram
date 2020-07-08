@@ -25,7 +25,18 @@
 -(void)setPost:(Post *) post{
     _post = post;
     self.postedImage.file = post.image;
+    PFUser *user = self.post[@"author"];
+    if (user != nil) {
+        self.usernameLabel.text = user.username;
+        self.lowerUsernameLabel.text = user.username;
+    } else {
+        self.usernameLabel.text = @"🤖";
+        self.lowerUsernameLabel.text = @"🤖";
+    }
     [self.postedImage loadInBackground];
     self.synopsisLabel.text = post.caption;
+    self.numLikes.text = [NSString stringWithFormat: @"%@", post.likeCount];
+    self.profilePicture.layer.cornerRadius = 25;
+    self.profilePicture.layer.masksToBounds = YES;
 }
 @end

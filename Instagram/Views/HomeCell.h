@@ -17,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) Post *post;
 @property (strong, nonatomic) IBOutlet PFImageView *postedImage;
 @property (weak, nonatomic) IBOutlet UILabel *synopsisLabel;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (weak, nonatomic) IBOutlet UILabel *lowerUsernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numLikes;
 -(void)setPost:(Post *)post;
 
 @end
