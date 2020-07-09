@@ -45,7 +45,9 @@
 - (void) editNavigationBar{
     UIImage *image = [UIImage imageNamed: @"instagram_logo"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage: image];
-    imageView.frame = CGRectMake(167, 2, 100, 40);
+    CGFloat itemX = (self.navigationController.navigationBar.frame.size.width / 2) - 50;
+    CGFloat itemY = (self.navigationController.navigationBar.frame.size.height / 2) - 20;
+    imageView.frame = CGRectMake(itemX,  itemY, 100, 40);
     UINavigationBar *navigationBar = self.navigationController.navigationBar;
     [navigationBar addSubview: imageView];
 }

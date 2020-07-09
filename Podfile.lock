@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.9.1)
+  - IQKeyboardManager (6.5.5)
   - Parse (1.18.0):
     - Parse/Core (= 1.18.0)
   - Parse/Core (1.18.0):
@@ -24,6 +25,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - IQKeyboardManager
   - Parse
   - Parse/UI
 
@@ -31,13 +33,15 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - Bolts
+    - IQKeyboardManager
     - Parse
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
+  IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
   Parse: 79bdda34fdb7eb2a707a43a951c8aae236cb3e34
 
-PODFILE CHECKSUM: a569cebd589f8fc2487bab4b2493437a2f3834dd
+PODFILE CHECKSUM: 838f7e4d8acce8ec571c6171c346581679242c2c
 
 COCOAPODS: 1.9.3

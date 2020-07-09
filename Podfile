@@ -9,6 +9,7 @@ target 'Instagram' do
     pod 'AFNetworking'
     pod 'Parse'
     pod 'Parse/UI'
+    pod 'IQKeyboardManager'
 
   target 'InstagramTests' do
     inherit! :search_paths
