@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *lowerUsernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numLikes;
+@property (weak, nonatomic) IBOutlet UILabel *createdAtLabel;
+@property (nonatomic, strong) NSString *username;
 -(void)setPost:(Post *)post;
 
 @end

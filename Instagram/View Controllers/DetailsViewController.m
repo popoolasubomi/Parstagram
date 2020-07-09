@@ -17,15 +17,31 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numLikes;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
-
+@property (nonatomic, strong) NSArray *profilePost;
 @end
 
 @implementation DetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self populateView];
+    
+    [self fetchProfileData];
+}
+
+-(void) fetchProfileData{
+    NSString *username = [PFUser currentUser].username;
+    PFQuery *query = [PFQuery queryWithClassName: username];
+    [query includeKey: @"author"];
+    [query orderByDescending: @"createdAt"];
+    query.limit = 20;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self.profilePost = posts;
+            [self populateView];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
 
 - (void)populateView{
