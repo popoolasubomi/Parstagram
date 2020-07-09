@@ -34,7 +34,7 @@
     } else {
         self.usernameLabel.text = @"🤖";
         self.lowerUsernameLabel.text = @"🤖";
-        self.username = user.username;
+        self.username = @"🤖";
     }
     [self.postedImage loadInBackground];
     self.synopsisLabel.text = post.caption;
@@ -51,10 +51,10 @@
 
 -(void) fetchProfileData{
     if (self.username != @"🤖"){
-        PFQuery *query = [PFQuery queryWithClassName: self.username];
+        PFQuery *query = [PFQuery queryWithClassName: @"user_profile"];
         [query includeKey: @"author"];
         [query orderByDescending: @"createdAt"];
-        query.limit = 20;
+        [query whereKey:@"name" equalTo: self.username];
         [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
             if (posts != nil) {
                 if (posts.count > 0){

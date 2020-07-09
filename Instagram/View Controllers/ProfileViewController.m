@@ -10,7 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "HomeCell.h"
 #import "Post.h"
-#import "User.h"
+
 @interface ProfileViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -45,15 +45,33 @@
     }
 }
 
+- (void) updateParseData{
+    if (self.posts.count > 0){
+        NSDictionary *post = [self.posts objectAtIndex: 0];
+        PFQuery *query = [PFQuery queryWithClassName:@"GameScore"];
+        [query getObjectInBackgroundWithId: post[@"objectId"]
+                                     block:^(PFObject *profileData, NSError *error) {
+            NSString *displayName = post[@"displayName"];
+            profileData[@"displayName"] = displayName;
+            NSString *description = post[@"description"];
+            profileData[@"score"] = description;
+            PFFileObject *Image = post[@"image"];
+            profileData[@"image"] = Image;
+            [profileData saveInBackground];
+        }];
+    }
+}
+
 -(void) fetchProfileData{
     NSString *username = [PFUser currentUser].username;
-    PFQuery *query = [PFQuery queryWithClassName: username];
+    PFQuery *query = [PFQuery queryWithClassName: @"user_profile"];
     [query includeKey: @"author"];
     [query orderByDescending: @"createdAt"];
-    query.limit = 20;
+    [query whereKey:@"name" equalTo: username];
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.posts = posts;
+            [self updateParseData];
             [self populateView];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -65,19 +83,14 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey: @"author"];
     [query orderByDescending: @"createdAt"];
+    [query whereKey:@"author" equalTo: [PFUser currentUser]];
     query.limit = 20;
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            self.tableViewData = [NSMutableArray new];
-            for (Post *post in posts){
-                NSString *current_user = [PFUser currentUser].username;
-                if ([post.author.username isEqualToString: current_user]){
-                    [self.tableViewData addObject: post];
-                }
-            }
+            self.tableViewData = (NSMutableArray *) posts;
             [self.tableView reloadData];
         } else {
-            NSLog(@"%@", error.localizedDescription);
+            NSLog(@"error: %@", error.localizedDescription);
         }
     }];
 }

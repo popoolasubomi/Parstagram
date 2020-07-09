@@ -8,7 +8,6 @@
 
 #import "EditProfileViewController.h"
 #import "Post.h"
-#import "User.h"
 
 @interface EditProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -119,7 +118,8 @@
     }
     else{
         NSString *username = [PFUser currentUser].username;
-        PFObject *user = [PFObject objectWithClassName: username];
+        PFObject *user = [PFObject objectWithClassName: @"user_profile"];
+        user[@"name"] = username;
         user[@"displayName"] = self.displayName.text;
         user[@"description"] = self.descriptionLabel.text;
         user[@"image"] = [Post getPFFileFromImage: self.profilePicture.image];

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		064A922594A32AF197D00A7A /* Pods_Instagram_InstagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61484E7BB1F21BF29935105F /* Pods_Instagram_InstagramUITests.framework */; };
-		433E61B724B64FDF00FC68F4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 433E61B624B64FDF00FC68F4 /* User.m */; };
 		433E61BA24B6529000FC68F4 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 433E61B924B6529000FC68F4 /* EditProfileViewController.m */; };
 		4341C35624B101ED000932F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4341C35524B101ED000932F0 /* AppDelegate.m */; };
 		4341C35F24B101ED000932F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4341C35D24B101ED000932F0 /* Main.storyboard */; };
@@ -49,8 +48,6 @@
 
 /* Begin PBXFileReference section */
 		0DD8D8C0447F8FBE6B40BFA0 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		433E61B524B64FDF00FC68F4 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		433E61B624B64FDF00FC68F4 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		433E61B824B6529000FC68F4 /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		433E61B924B6529000FC68F4 /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		4341C35124B101ED000932F0 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,8 +224,6 @@
 			children = (
 				43DAA28524B3C095007D9874 /* Post.h */,
 				43DAA28624B3C095007D9874 /* Post.m */,
-				433E61B524B64FDF00FC68F4 /* User.h */,
-				433E61B624B64FDF00FC68F4 /* User.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -493,7 +488,6 @@
 				43DAA1F024B13AC2007D9874 /* HomeViewController.m in Sources */,
 				43DAA1F624B28226007D9874 /* CameraViewController.m in Sources */,
 				433E61BA24B6529000FC68F4 /* EditProfileViewController.m in Sources */,
-				433E61B724B64FDF00FC68F4 /* User.m in Sources */,
 				43DAA29324B56FBE007D9874 /* ProfileViewController.m in Sources */,
 				43DAA1ED24B12B47007D9874 /* LoginViewController.m in Sources */,
 				43DAA28724B3C095007D9874 /* Post.m in Sources */,
