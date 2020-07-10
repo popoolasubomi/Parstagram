@@ -36,6 +36,7 @@
         self.lowerUsernameLabel.text = @"🤖";
         self.username = @"🤖";
     }
+    
     [self.postedImage loadInBackground];
     self.synopsisLabel.text = post.caption;
     self.numLikes.text = [NSString stringWithFormat: @"%@", post.likeCount];
@@ -46,28 +47,14 @@
     formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
     [formatter setDateFormat:@"h:mm a"];
     self.createdAtLabel.text = [formatter stringFromDate: createdAt];
-    [self fetchProfileData];
-}
-
--(void) fetchProfileData{
-    if (self.username != @"🤖"){
-        PFQuery *query = [PFQuery queryWithClassName: @"user_profile"];
-        [query includeKey: @"author"];
-        [query orderByDescending: @"createdAt"];
-        [query whereKey:@"name" equalTo: self.username];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-            if (posts != nil) {
-                if (posts.count > 0){
-                    NSDictionary *post = [posts objectAtIndex: 0];
-                    PFFileObject *imageData = post[@"image"];
-                    NSString *imageUrlString = imageData.url;
-                    NSURL *imageUrl = [NSURL URLWithString: imageUrlString];
-                    [self.profilePicture setImageWithURL: imageUrl];
-                }
-            } else {
-                NSLog(@"%@", error.localizedDescription);
-            }
-        }];
+    
+    self.profilePicture.image = [UIImage imageNamed:@"image_placeholder"];
+    PFFileObject *imageData = [user objectForKey: @"image"];
+    if (imageData != nil){
+        NSString *imageUrlString = imageData.url;
+        NSURL *imageUrl = [NSURL URLWithString: imageUrlString];
+        [self.profilePicture setImageWithURL: imageUrl];
     }
 }
+
 @end

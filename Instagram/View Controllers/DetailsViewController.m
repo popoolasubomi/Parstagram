@@ -25,23 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self fetchProfileData];
-}
-
--(void) fetchProfileData{
-    NSString *username = [PFUser currentUser].username;
-    PFQuery *query = [PFQuery queryWithClassName: username];
-    [query includeKey: @"author"];
-    [query orderByDescending: @"createdAt"];
-    query.limit = 20;
-    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-        if (posts != nil) {
-            self.profilePost = posts;
-            [self populateView];
-        } else {
-            NSLog(@"%@", error.localizedDescription);
-        }
-    }];
+    [self populateView];
 }
 
 - (void)populateView{
@@ -61,6 +45,7 @@
     self.postedImageView.file = self.post.image;
     [self.postedImageView loadInBackground];
 }
+
 /*
 #pragma mark - Navigation
 

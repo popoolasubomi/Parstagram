@@ -117,22 +117,21 @@
         [self emptyFieldsAlert];
     }
     else{
-        NSString *username = [PFUser currentUser].username;
-        PFObject *user = [PFObject objectWithClassName: @"user_profile"];
-        user[@"name"] = username;
-        user[@"displayName"] = self.displayName.text;
-        user[@"description"] = self.descriptionLabel.text;
-        user[@"image"] = [Post getPFFileFromImage: self.profilePicture.image];
-        [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-          if (succeeded) {
-              NSLog(@"worked");
-              [self dismissViewControllerAnimated: YES completion: nil];
-          } else {
-              [self errorAlert];
-          }
+        PFFileObject *image = [Post getPFFileFromImage: self.profilePicture.image];
+        [PFUser.currentUser setObject: image forKey: @"image"];
+        [PFUser.currentUser setObject: self.displayName.text forKey: @"displayName"];
+        [PFUser.currentUser setObject: self.descriptionLabel.text forKey: @"description"];
+        [PFUser.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (error){
+                [self errorAlert];
+            }
+            else{
+                NSLog(@"Saved Successfully");
+                [self dismissViewControllerAnimated: YES completion: nil];
+            }
         }];
-        }
 }
+         }
 
 - (IBAction)onTap:(id)sender {
     [self.view endEditing:YES];

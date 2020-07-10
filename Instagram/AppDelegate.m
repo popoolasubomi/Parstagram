@@ -23,7 +23,7 @@
              configuration.applicationId = @"myAppId";
              configuration.server = @"https://fbu-parstagram-app.herokuapp.com/parse";
          }];
-    [Parse initializeWithConfiguration:config];
+    [Parse initializeWithConfiguration: config];
     return YES;
 }
 
