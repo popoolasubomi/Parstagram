@@ -18,7 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [IQKeyboardManager sharedManager].enable = NO;
+    [IQKeyboardManager sharedManager].enable = YES;
      ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
              configuration.applicationId = @"myAppId";
              configuration.server = @"https://fbu-parstagram-app.herokuapp.com/parse";

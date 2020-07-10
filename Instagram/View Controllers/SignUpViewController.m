@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buildButton;
 @property (weak, nonatomic) IBOutlet UILabel *signUpLabel;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -25,54 +26,47 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self addConstraints];
+    //Did not implement code constraints due to effects on scroll view
+    //[self addConstraints];
 }
 
 -(void) addConstraints{
-//    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.usernameField
-//                                                            attribute:NSLayoutAttributeLeft
-//                                                            relatedBy: NSLayoutRelationEqual
-//                                                               toItem: self.passwordField
-//                                                            attribute: NSLayoutAttributeLeft multiplier:1 constant:100];
-    //Constraints For Scroll View
-    
-    
     //Constraint For Cancel Button
     [self.stopButton setTranslatesAutoresizingMaskIntoConstraints: NO];
-    [self.stopButton.topAnchor constraintEqualToAnchor: self.view.topAnchor constant: 20].active = YES;
-    [self.stopButton.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor constant: 20].active = YES;
+    [self.stopButton.topAnchor constraintEqualToAnchor: self.contentView.topAnchor constant: 20].active = YES;
+    [self.stopButton.leadingAnchor constraintEqualToAnchor: self.contentView.leadingAnchor constant: 20].active = YES;
     [self.stopButton.heightAnchor constraintEqualToConstant: 56].active = YES;
     [self.stopButton.widthAnchor constraintEqualToConstant: 46].active = YES;
-    
+
     //Constraint For SignUp Label
     [self.signUpLabel setTranslatesAutoresizingMaskIntoConstraints: NO];
     [self.signUpLabel.topAnchor constraintEqualToAnchor: self.stopButton.bottomAnchor constant: 40].active = YES;
-    [self.signUpLabel.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor constant: 0].active = YES;
-    [self.signUpLabel.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor constant: 0].active = YES;
-    
+    [self.signUpLabel.leadingAnchor constraintEqualToAnchor: self.contentView.leadingAnchor constant: 0].active = YES;
+    [self.signUpLabel.trailingAnchor constraintEqualToAnchor: self.contentView.trailingAnchor constant: 0].active = YES;
+
     //Constraint For UsernameField
     [self.usernameField setTranslatesAutoresizingMaskIntoConstraints: NO];
     [self.usernameField.topAnchor constraintEqualToAnchor: self.signUpLabel.bottomAnchor constant: 70].active = YES;
-    [self.usernameField.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor constant: 0].active = YES;
-    [self.usernameField.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor constant: 0].active = YES;
-    
+    [self.usernameField.leadingAnchor constraintEqualToAnchor: self.contentView.leadingAnchor constant: 0].active = YES;
+    [self.usernameField.trailingAnchor constraintEqualToAnchor: self.contentView.trailingAnchor constant: 0].active = YES;
+
     //Constraint for Email Field
     [self.emailField setTranslatesAutoresizingMaskIntoConstraints: NO];
     [self.emailField.topAnchor constraintEqualToAnchor: self.usernameField.bottomAnchor constant: 70].active = YES;
-    [self.emailField.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor constant: 0].active = YES;
-    [self.emailField.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor constant: 0].active = YES;
-    
+    [self.emailField.leadingAnchor constraintEqualToAnchor: self.contentView.leadingAnchor constant: 0].active = YES;
+    [self.emailField.trailingAnchor constraintEqualToAnchor: self.contentView.trailingAnchor constant: 0].active = YES;
+
     //Constraint For PasswordField
     [self.passwordField setTranslatesAutoresizingMaskIntoConstraints: NO];
     [self.passwordField.topAnchor constraintEqualToAnchor: self.emailField.bottomAnchor constant: 70].active = YES;
-    [self.passwordField.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor constant: 0].active = YES;
-    [self.passwordField.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor constant: 0].active = YES;
-    
+    [self.passwordField.leadingAnchor constraintEqualToAnchor: self.contentView.leadingAnchor constant: 0].active = YES;
+    [self.passwordField.trailingAnchor constraintEqualToAnchor: self.contentView.trailingAnchor constant: 0].active = YES;
+
     //Constraint For SignUpButton
     [self.buildButton setTranslatesAutoresizingMaskIntoConstraints: NO];
     [self.buildButton.topAnchor constraintEqualToAnchor: self.passwordField.bottomAnchor constant: 70].active = YES;
-    [self.buildButton.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor constant: 0].active = YES;
-    [self.buildButton.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor constant: 0].active = YES;
+    [self.buildButton.leadingAnchor constraintEqualToAnchor: self.contentView.leadingAnchor constant: 0].active = YES;
+    [self.buildButton.trailingAnchor constraintEqualToAnchor: self.contentView.trailingAnchor constant: 0].active = YES;
 }
 
 - (void) invalidDetailAlert{
